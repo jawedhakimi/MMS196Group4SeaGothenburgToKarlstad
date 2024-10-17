@@ -2,6 +2,7 @@ function TotalCostDiesel = DieselCostCalc(s)
 % running costs
 EtaDiesel = 0.35;
 EtaProp = 0.66;
+
 EDiesel = 38*10^9;      % [J/m^3]
 Costdiesel = 1.5*10^3;  % [€/m^3]
 
