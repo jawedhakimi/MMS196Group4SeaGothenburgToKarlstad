@@ -65,10 +65,24 @@ grid on, title('Number of batteries as a function of speed.')
 
 subplot(2,2,4)
 plot(v,TotalCostOfBattCon,'b','LineWidth',2), hold on
-plot(v,CostDieselGen,'r','LineWidth',2), hold on
-plot(v,CostLNGGen,'m','LineWidth',2)
+plot(v,CostDieselGen,'m','LineWidth',2), hold on
+plot(v,CostLNGGen,'b','LineWidth',2)
 xlabel('Speed[Kts]'), ylabel('Initial cost[€]')
 grid on, title('Cost of batteries as a function of speed.')
 legend('Electric','Diesel','LNG')
 
+%% Break Even
+Ntrips = linspace(1,1000,1000);
+% Diesel
+RunningCostDiesel = VolumeOfDieselFuel * CostDieselFuel * Ntrips;
+TotalCostDiesel = RunningCostDiesel + 350000;
 
+
+% Battery
+RunningCostBattery = RunningCostDiesel * 0.6 * Ntrips;
+TotalCostBattery = RunningCostBattery + TotalCostOfBattCon;
+
+
+% LNG
+RunningCostLNG = VolumeOfLNG * CostDieselFuel * 1.2 * Ntrips;
+TotalCostLNG = 
